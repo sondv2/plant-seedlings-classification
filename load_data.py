@@ -35,3 +35,11 @@ def load_datasets(dataset=train_data, inputsize=inputsize):
     # one hot encode
     y, num_class = one_hot_encode(y)
     return X, y, num_class
+
+def get_data_size(dataset):
+    total = 0
+    label = os.listdir(dataset)
+    for image_label in label:
+        images = os.listdir(os.path.join(dataset, image_label))
+        total += len(images)
+    return total

@@ -21,8 +21,9 @@ def model_define(modeltype, inputshape):
         freeze_layers(model)
         print('Model: ResNet50, weights loaded!')
     elif modeltype == 'Xception':
-        model = applications.Xception(include_top=False, weights='imagenet', input_shape=inputshape, pooling='avg')
-        freeze_layers(model)
+        model = applications.Xception(include_top=False, weights='imagenet', input_shape=inputshape)
+        # freeze_layers(model)
+        model.trainable = False
         print('Model: Xception, weights loaded!')
     else:
         pass

@@ -10,7 +10,7 @@ def fine_tune(base_model, method=0):
         # x = base_model.layers[-1].output
         x = base_model.output
         x = Dense(256, activation='relu')(x)
-        x = Dropout(0.5)(x)
+        x = Dropout(0.7)(x)
         predictions = Dense(n_class, activation='softmax')(x)
 
         model = Model(inputs=base_model.input, outputs=predictions)
