@@ -2,6 +2,7 @@ from keras.layers import Dense, GlobalAveragePooling2D, Dropout, BatchNormalizat
 from keras.models import Model
 from keras.utils import multi_gpu_model
 from keras.optimizers import nadam
+
 def fine_tune(base_model, n_class, multi_gpu_flag=False, gpus=1, method=0):
 
     if method == 0:

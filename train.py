@@ -4,7 +4,6 @@ from datetime import datetime
 import numpy as np
 from keras.preprocessing.image import ImageDataGenerator
 
-from data_size import load_data_train_size
 from model_define import model_define
 from load_data import get_data_size
 from model_visualize import model_plot
@@ -72,24 +71,24 @@ if __name__ == "__main__":
 
     # Data Preprocessing and rescaling
     train_data_gen = ImageDataGenerator(rescale=1. / 255,
-                                        # featurewise_center=False,  # set input mean to 0 over the dataset
-                                        # samplewise_center=False,  # set each sample mean to 0
-                                        # featurewise_std_normalization=False,  # divide inputs by std of the dataset
-                                        # samplewise_std_normalization=False,  # divide each input by its std
-                                        # zca_whitening=False,  # apply ZCA whitening
-                                        # rotation_range=30,
-                                        # width_shift_range=0.2,
-                                        # height_shift_range=0.2,
-                                        # horizontal_flip=True,
-                                        # shear_range=0.2,
-                                        # zoom_range=0.2,
-                                        # fill_mode='nearest'
+                                        featurewise_center=False,  # set input mean to 0 over the dataset
+                                        samplewise_center=False,  # set each sample mean to 0
+                                        featurewise_std_normalization=False,  # divide inputs by std of the dataset
+                                        samplewise_std_normalization=False,  # divide each input by its std
+                                        zca_whitening=False,  # apply ZCA whitening
                                         rotation_range=20,
-                                        zoom_range=0.15,
                                         width_shift_range=0.2,
                                         height_shift_range=0.2,
-                                        shear_range=0.15,
                                         horizontal_flip=True,
+                                        shear_range=0.2,
+                                        zoom_range=0.2,
+                                        fill_mode='nearest',
+                                        # rotation_range=20,
+                                        # zoom_range=0.15,
+                                        # width_shift_range=0.2,
+                                        # height_shift_range=0.2,
+                                        # shear_range=0.15,
+                                        # horizontal_flip=True,
                                         brightness_range=[0.4, 1],
                                         )
     validation_data_gen = ImageDataGenerator(rescale=1. / 255)

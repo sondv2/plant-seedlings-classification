@@ -5,8 +5,9 @@ from keras.layers import Dense, BatchNormalization, Activation, Conv2D, MaxPooli
 from keras.models import Sequential
 
 def freeze_layers(model, pos=10):
-    for layer in model.layers[:pos]:
-        layer.trainable = False
+    # for layer in model.layers[:]:
+    #     layer.trainable = False
+    model.trainable = False
 
 def model_define(modeltype, inputshape):
 
@@ -22,8 +23,7 @@ def model_define(modeltype, inputshape):
         print('Model: ResNet50, weights loaded!')
     elif modeltype == 'Xception':
         model = applications.Xception(include_top=False, weights='imagenet', input_shape=inputshape)
-        # freeze_layers(model)
-        model.trainable = False
+        freeze_layers(model)
         print('Model: Xception, weights loaded!')
     else:
         pass
